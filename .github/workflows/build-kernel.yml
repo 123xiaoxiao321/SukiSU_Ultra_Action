@@ -206,6 +206,17 @@ jobs:
         curl -LSs "https://raw.githubusercontent.com/SukiSU-Ultra/SukiSU-Ultra/main/kernel/setup.sh" | bash -s nongki
         KSU_VERSION=$(cd KernelSU && expr $(/usr/bin/git rev-list --count HEAD) + 10200)
         echo "UPLOADNAME=-KernelSU_$KSU_VERSION" >> $GITHUB_ENV
+        git clone https://gitlab.com/simonpunk/susfs4ksu
+        cd ./susfs4ksu
+        cp ./kernel_patches/KernelSU/10_enable_susfs_for_ksu.patch ../android-kernel/KernelSU/
+        cp ./kernel_patches/50_add_susfs_in_kernel-4.9.patch ../android-kernel/
+        cp ./kernel_patches/fs/susfs.c ../android-kernel/fs/
+        cp ./kernel_patches/include/linux/susfs.h ../android-kernel/include/linux/
+        cd ../android-kernel/KernelSU
+        patch -p1 < 10_enable_susfs_for_ksu.patch
+        cd ..
+        patch -p1 < 50_add_susfs_in_kernel-4.9.patch
+        
 
     - name: Setup Configuration for Kernel
       run: |
