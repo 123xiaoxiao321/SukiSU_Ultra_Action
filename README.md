@@ -114,7 +114,7 @@ Fork 本仓库到你的储存库然后按照以下内容编辑 config.env，之�
 
 启用 SukiSU_Ultra，用于排查内核故障或单独编译内核
 
-#### SUKISU_ULTRA_MODE
+### SUKISU_ULTRA_MODE
 
 选择SUKISU ULTRA 的分支:
 
@@ -124,6 +124,46 @@ Fork 本仓库到你的储存库然后按照以下内容编辑 config.env，之�
 - susfs测试版: susfs-test
 具体可见[集成指导](https://github.com/SukiSU-Ultra/SukiSU-Ultra/blob/main/docs/zh/guide/how-to-integrate.md)
 
+### ENABLE SUSFS ADD
+启用susfs支持
+注意：该选项大概率会使内核编译失败，如果在Setup susfs失败，请不要启用
+
+并且还需要在内核配置文件添加一下内容
+
+CONFIG_KSU=y
+
+CONFIG_KSU_SUSFS=y
+
+CONIG_KSU_SUSFS_AUTO_ADD_SUS_BIND_MOUNT=y
+
+CONFIG_KSU_SUSFS_SUS_MOUNT=y
+
+CONFIG_KSU_SUSFS_AUTO_ADD_SUS_KSU_DEFAULT_MOUNT=y
+
+CONFIG_KSU_SUSFS_AUTO_ADD_TRY_UMOUNT_FOR_BIND_MOUNT=y 
+
+CONFIG_KSU_SUSFS_TRY_UMOUNT=y
+
+CONFIG_KSU_SUSFS_ENABLE_LOG=y
+
+CONFIG_KSU_SUSFS_HIDE_KSU_SUSFS_SYMBOLS=y
+
+CONFIG_KSU_SUSFS_OPEN_REDIRECT=y
+
+CONFIG_KSU_SUSFS_SPOOF_PROC_CMDLINE=y
+
+CONFIG_KSU_SUSFS_SPOOF_UNAME=y
+
+CONFIG_KSU_SUSFS_SUS_KSTAT=y 
+
+CONFIG_KSU_SUSFS_SUS_OVERLAYFS=y CONFIG_KSU_SUSFS_SUS_PATH=y 
+
+CONFIG_KSU_SUSFS_SUS_SU=y
+
+### KERNEL VERSION
+用于添加补丁，只有4.9,4.14,4.19,5.4可用
+
+具体可见[susfs4ksu](https://gitlab.com/simonpunk/susfs4ksu)
 ### Disable LTO
 
 LTO 用于优化内核，但有些时候会导致错误
@@ -197,6 +237,7 @@ LTO 用于优化内核，但有些时候会导致错误
 
 - [AnyKernel3](https://github.com/osm0sis/AnyKernel3)
 - [AOSP](https://android.googlesource.com)
-- [KernelSU](https://github.com/tiann/KernelSU)
+- [SukiSU-Ultra](https://github.com/SukiSU-Ultra/SukiSU-Ultra)
 - [xiaoxindada](https://github.com/xiaoxindada)
 - [kernelsu_action](https://github.com/xiaoleGun/KernelSU_Action)
+- [susfs4ksu](https://gitlab.com/simonpunk/susfs4ksu)
