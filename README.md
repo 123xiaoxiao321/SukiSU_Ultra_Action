@@ -1,19 +1,15 @@
-**中文** | [English](README_EN.md)
 
 # SukiSU-Ultra Action
 
-用于 Non-GKI(gki马上适配) Kernel 的 Action，具有一定的普遍性，需要了解内核及 Android 的相关知识得以运用。
+用于 Non-GKI和GKI 的 Action，具有一定的普遍性，需要了解内核及 Android 的相关知识得以运用。
 
 ## 警告 :warning: :warning: :warning:
 
-如果你不是内核作者，使用他人的劳动成果构建 KernelSU，请仅供自己使用，不要分享给别人，这是对原作者的劳动成果的尊重。
+如果你不是内核作者，使用他人的劳动成果构建 SukiSU-Ultra，请仅供自己使用，不要分享给别人，这是对原作者的劳动成果的尊重。
+该action没有经过测试，可能出现严重问题，请确保您会救砖
 
 ## 支持内核
-
-- `5.4`
-- `4.19`
-- `4.14`
-- `4.9`
+理论支持4.9及以上的所以版本
 
 ## 使用
 
@@ -113,29 +109,19 @@ Fork 本仓库到你的储存库然后按照以下内容编辑 config.env，之�
 
 例如: LLVM=1 LLVM_IAS=1
 
-### Enable KernelSU
+### Enable SukiSU Ultra
 
-启用 KernelSU，用于排查内核故障或单独编译内核
+启用 SukiSU_Ultra，用于排查内核故障或单独编译内核
 
-#### KernelSU Branch or Tag
+#### SUKISU_ULTRA_MODE
 
-[KernelSU 1.0 已经不再支持非 GKI 内核](https://github.com/tiann/KernelSU/issues/1705)，最后的支持版本为 [v0.9.5](https://github.com/tiann/KernelSU/tree/v0.9.5)，请注意使用正确的分支
+选择SUKISU ULTRA 的分支:
 
-选择 KernelSU 的分支或 tag:
-
-- ~~main 分支(开发版): `KERNELSU_TAG=main`~~
-- 最新 TAG(稳定版): `KERNELSU_TAG=v0.9.5`
-- 指定 TAG(如`v0.5.2`): `KERNELSU_TAG=v0.5.2`
-
-#### KernelSU Manager signature size and hash
-
-自定义KernelSU管理器签名的size值和hash值，如果不需要自定义管理器则请留空或填入官方默认值：
-
-`KSU_EXPECTED_SIZE=0x033b`
-
-`KSU_EXPECTED_HASH=c371061b19d8c7d7d6133c6a9bafe198fa944e50c1b31c9d8daa8d7f1fc2d2d6`
-
-可键入`ksud debug get-sign <apk_path>`获取apk签名的size值和hash值
+- kprobe版（gki内核）:main 
+- nongki内核: nongki
+- susfs正式版: susfs-main
+- susfs测试版: susfs-test
+具体可见[集成指导](https://github.com/SukiSU-Ultra/SukiSU-Ultra/blob/main/docs/zh/guide/how-to-integrate.md)
 
 ### Disable LTO
 
@@ -154,7 +140,7 @@ LTO 用于优化内核，但有些时候会导致错误
 此参数为 KernelSU 模块和 system 分区读写提供支持
 自动在 defconfig 注入参数
 
-### Apply KernelSU Patch
+### APPLY SUKISU PATCH
 
 如果 kprobe 工作不正常（通常是上游的 bug 或者内核版本过低），那你可以尝试启用此参数
 
@@ -210,3 +196,4 @@ LTO 用于优化内核，但有些时候会导致错误
 - [AOSP](https://android.googlesource.com)
 - [KernelSU](https://github.com/tiann/KernelSU)
 - [xiaoxindada](https://github.com/xiaoxindada)
+- [kernelsu_action](https://github.com/xiaoleGun/KernelSU_Action)
