@@ -191,6 +191,8 @@ LTO 用于优化内核，但有些时候会导致错误
 
 例如: https://raw.githubusercontent.com/xiaoleGun/KernelSU_action/main/boot/boot-wayne-from-Miku-UI-latest.img
 
+###KPM
+若要打开KPM，请在内核配置文件中添加CONFIG_KPM=y，若是nongki内核，还需添加CONFIG_KALLSYMS=y和CONFIG_KALLSYMS_ALL=y，对于4.19一下的内核，需要手动移植set_memory.h，这些无法在本action中完成，只能您自己修改源码
 ## 感谢
 
 - [AnyKernel3](https://github.com/osm0sis/AnyKernel3)
