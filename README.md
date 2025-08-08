@@ -6,7 +6,8 @@
 ## 警告 :warning: :warning: :warning:
 
 如果你不是内核作者，使用他人的劳动成果构建 SukiSU-Ultra，请仅供自己使用，不要分享给别人，这是对原作者的劳动成果的尊重。
-该action没有经过测试，可能出现严重问题，请确保您会救砖
+
+该action没有经过测试，可能出现严重问题，请确保您会救砖，如果追求稳定，请使用[kernelsu_action](https://github.com/xiaoleGun/KernelSU_Action)
 
 ## 支持内核
 理论支持4.9及以上的所以版本
