@@ -10,7 +10,7 @@
 该action没有经过测试，可能出现严重问题，请确保您会救砖，如果追求稳定，请使用[kernelsu_action](https://github.com/xiaoleGun/KernelSU_Action)
 
 ## 支持内核
-理论支持4.9及以上的所以版本
+理论支持4.9及以上的所有版本
 
 ## 使用
 
